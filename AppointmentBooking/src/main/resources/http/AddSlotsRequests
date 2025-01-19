@@ -1,0 +1,17 @@
+curl -X POST "http://localhost:8080/v1/slot" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "doctorId": "a3f4f2b5-908a-47d7-96b4-6c10724b7b4a",
+           "doctorName": "Amr Salah",
+           "time": "2027-03-15T11:00:00",
+           "cost": 175.50
+         }'
+
+curl -X POST "http://localhost:8080/v1/slot" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "doctorId": "a234ea7d-8baf-46f9-bb36-e66c6c30dbe3",
+           "doctorName": "Dr. Islam Ahmed",
+           "time": "2027-06-20T15:30:00",
+           "cost": 225.00
+         }'

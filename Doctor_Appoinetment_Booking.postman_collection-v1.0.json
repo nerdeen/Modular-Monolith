@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "44ae01ef-5f93-4f14-ad4d-4e9d2103e1cc",
+		"name": "Doctor_Appoinetment_Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9178065"
+	},
+	"item": [
+		{
+			"name": "AddNewSlot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctorId\": \"a3f4f2b5-908a-47d7-96b4-6c10724b7b4a\",\r\n    \"doctorName\": \"Amr Salah\",\r\n    \"time\": \"2027-03-15T11:00:00\",\r\n    \"cost\": 175.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/slot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"slot"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addSlotSuccessfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doctorId\": \"a234ea7d-8baf-46f9-bb36-e66c6c30dbe3\",\r\n  \"doctorName\": \"Dr. Islam Ahmed\",\r\n  \"time\": \"2027-06-20T15:30:00\",\r\n  \"cost\": 225.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/slot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"slot"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 22:23:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"SUCCESS\",\n    \"payload\": \"Slot created successfully\"\n}"
+				},
+				{
+					"name": "TryToAddNewSlotInlessThan1HourAhead",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doctorId\": \"d123f2b5-908a-47d7-96b4-6c10724b7b4f\",\r\n  \"doctorName\": \"Dr. Sarah Smith\",\r\n  \"time\": \"2025-01-19T10:30:00\",\r\n  \"cost\": 200.00\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/slot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"slot"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 22:31:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Bad Request\",\n    \"message\": \"The slot time must be at least 1 hour ahead of the current time.\",\n    \"timestamp\": \"2025-01-20T00:31:55.5296287\",\n    \"status\": 400\n}"
+				}
+			]
+		},
+		{
+			"name": "ViewSlots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/slot/a3f4f2b5-908a-47d7-96b4-6c10724b7b4e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"slot",
+						"a3f4f2b5-908a-47d7-96b4-6c10724b7b4e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReturnTheUpcomingSlotOnly",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/slot/a3f4f2b5-908a-47d7-96b4-6c10724b7b4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"slot",
+								"a3f4f2b5-908a-47d7-96b4-6c10724b7b4e"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 22:36:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"SUCCESS\",\n    \"payload\": [\n        {\n            \"id\": \"8f0a7122-52e3-47fa-b268-4739fdb8c5fa\",\n            \"time\": \"10/02/2027 09:30 AM\",\n            \"isReserved\": false,\n            \"cost\": 180\n        },\n        {\n            \"id\": \"6d1e93cc-c9f5-4bff-b95c-93fa6238c177\",\n            \"time\": \"15/02/2027 04:45 PM\",\n            \"isReserved\": false,\n            \"cost\": 200\n        }\n    ]\n}"
+				},
+				{
+					"name": "errorWhenEnteredWrongDoctorID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/slot/a3f4f2b5-908a-47d7-96b4-6c10724b7b47",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"slot",
+								"a3f4f2b5-908a-47d7-96b4-6c10724b7b47"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 22:40:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Not Found\",\n    \"message\": \"No doctor found with ID: a3f4f2b5-908a-47d7-96b4-6c10724b7b47\",\n    \"timestamp\": \"2025-01-20T00:40:11.1755001\",\n    \"status\": 404\n}"
+				},
+				{
+					"name": "errorWhenNoUpcomingSlotForDrWithID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/slot/a3f4f2b5-908a-47d7-96b4-6c10724b7b4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"slot",
+								"a3f4f2b5-908a-47d7-96b4-6c10724b7b4e"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Jan 2025 22:41:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Not Found\",\n    \"message\": \"No upcoming slots available for doctor ID: a3f4f2b5-908a-47d7-96b4-6c10724b7b4e\",\n    \"timestamp\": \"2025-01-20T00:41:48.1452852\",\n    \"status\": 404\n}"
+				}
+			]
+		}
+	]
+}

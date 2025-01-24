@@ -1,9 +1,8 @@
 package com.appointment_booking.appointment_reservation.internal.domain.repo;
 
-import com.appointment_booking.appointment_reservation.internal.domain.dto.AppointmentReqDTO;
-import com.appointment_booking.appointment_reservation.internal.infrastructure.entity.SlotEntity;
+import com.appointment_booking.appointment_reservation.internal.infrastructure.entity.AppointmentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AppointmentRepo {
-    public void bookAppointment(AppointmentReqDTO appointmentReqDTO);
+public interface AppointmentRepo extends JpaRepository<AppointmentEntity, String> {
 
 }

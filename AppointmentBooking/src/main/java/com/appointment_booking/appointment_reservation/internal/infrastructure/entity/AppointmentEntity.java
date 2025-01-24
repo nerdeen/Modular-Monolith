@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
@@ -29,7 +30,7 @@ public class AppointmentEntity {
     private String patientName;
 
     @Column(name = "reserved_at")
-    private LocalDate reservedAt;
+    private LocalTime reservedAt;
 
 
     @Transient
@@ -40,7 +41,7 @@ public class AppointmentEntity {
 
     @PrePersist
     protected void onCreate() {
-        this.reservedAt = LocalDate.now();
+        this.reservedAt = LocalTime.now();
     }
 
 

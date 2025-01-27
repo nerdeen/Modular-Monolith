@@ -1,4 +1,4 @@
-package com.appointment_booking.doctor_availability.internal.entity;
+package com.appointment_booking.doctor_availability.shared.sharedDB.db;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,7 +30,7 @@ public class SlotEntity {
     private String doctorName;
 
     @Column(name = "is_reserved")
-    private boolean isReserved;
+    private boolean reserved;
 
     @Column(name = "cost")
     private double cost;

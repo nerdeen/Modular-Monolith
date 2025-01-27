@@ -1,6 +1,6 @@
 package com.appointment_booking.doctor_availability.internal.dto;
 
-import com.appointment_booking.doctor_availability.internal.entity.SlotEntity;
+import com.appointment_booking.doctor_availability.shared.sharedDB.db.SlotEntity;
 
 import java.util.UUID;
 

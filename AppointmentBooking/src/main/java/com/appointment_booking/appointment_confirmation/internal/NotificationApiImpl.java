@@ -1,6 +1,6 @@
 package com.appointment_booking.appointment_confirmation.internal;
 
-import com.appointment_booking.appointment_confirmation.NotificationApi;
+import com.appointment_booking.appointment_confirmation.shared.NotificationApi;
 
 public class NotificationApiImpl implements NotificationApi {
     @Override

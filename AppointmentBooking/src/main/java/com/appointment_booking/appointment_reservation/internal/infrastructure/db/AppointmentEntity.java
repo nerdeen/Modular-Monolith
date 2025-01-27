@@ -1,10 +1,9 @@
-package com.appointment_booking.appointment_reservation.internal.infrastructure.entity;
+package com.appointment_booking.appointment_reservation.internal.infrastructure.db;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
@@ -30,7 +29,7 @@ public class AppointmentEntity {
     private String patientName;
 
     @Column(name = "reserved_at")
-    private LocalTime reservedAt;
+    private LocalDateTime reservedAt;
 
 
     @Transient
@@ -41,7 +40,7 @@ public class AppointmentEntity {
 
     @PrePersist
     protected void onCreate() {
-        this.reservedAt = LocalTime.now();
+        this.reservedAt = LocalDateTime.now();
     }
 
 

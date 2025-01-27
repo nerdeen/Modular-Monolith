@@ -1,4 +1,4 @@
-package com.appointment_booking.appointment_confirmation;
+package com.appointment_booking.appointment_confirmation.shared;
 
 public interface NotificationApi {
     void notifyDoctor(String doctorId,String patientName);

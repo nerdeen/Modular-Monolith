@@ -3,12 +3,11 @@ package com.appointment_booking.doctor_availability.internal.service;
 import com.appointment_booking.doctor_availability.internal.dto.Mapper;
 import com.appointment_booking.doctor_availability.internal.dto.SlotReqDTO;
 import com.appointment_booking.doctor_availability.internal.dto.SlotResDTO;
-import com.appointment_booking.doctor_availability.internal.entity.SlotEntity;
-import com.appointment_booking.doctor_availability.internal.repository.SlotRepository;
+import com.appointment_booking.doctor_availability.shared.sharedDB.db.SlotEntity;
+import com.appointment_booking.doctor_availability.shared.sharedDB.repository.SlotRepository;
 import com.appointment_booking.shared.exception.BusinessException;
 import com.appointment_booking.shared.exception.NotFoundException;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

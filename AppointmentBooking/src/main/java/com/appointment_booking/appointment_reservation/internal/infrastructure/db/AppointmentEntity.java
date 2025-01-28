@@ -28,20 +28,32 @@ public class AppointmentEntity {
     @Column(name = "patient_name")
     private String patientName;
 
+    @Column(name = "time")
+    private LocalDateTime time;
+
+    @Column(name = "status")
+    private String status;
+
     @Column(name = "reserved_at")
     private LocalDateTime reservedAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     @Transient
     public String getFormattedTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return reservedAt.format(formatter);
+        return time.format(formatter);
     }
 
     @PrePersist
     protected void onCreate() {
         this.reservedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
-
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

@@ -3,5 +3,5 @@ package com.appointment_booking.appointment_reservation.internal.infrastructure.
 import lombok.Builder;
 
 @Builder
-public record SlotsResDTO(String id, String time, double cost) {
+public record SlotsResDTO(String id, String time,String doctorName, double cost) {
 }

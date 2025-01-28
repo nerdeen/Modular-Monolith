@@ -14,12 +14,17 @@ import java.util.stream.Collectors;
 
 @Repository
 public class SlotsRepo implements SlotGateway {
+
     SlotRepository slotRepository;
+
+    public SlotsRepo(SlotRepository slotRepository) {
+        this.slotRepository = slotRepository;
+    }
 
     @Override
     public List<SlotsResDTO> findAllByReservedIsAndTimeAfter() {
         return slotRepository
-                .findByReservedIsAndTimeAfter(true,LocalDateTime.now())
+                .findByReservedIsAndTimeAfter(false,LocalDateTime.now())
                 .stream()
                 .map(Mapper::toSlotsResDTO).collect(Collectors.toList());
     }
@@ -31,6 +36,11 @@ public class SlotsRepo implements SlotGateway {
     @Override
     public void updateSlot(SlotEntity slotEntity) {
         slotRepository.save(slotEntity);
+    }
+
+    @Override
+    public boolean doctorIdValidUseCase(String doctorId) {
+        return slotRepository.existsByDoctorId(doctorId);
     }
 }
 

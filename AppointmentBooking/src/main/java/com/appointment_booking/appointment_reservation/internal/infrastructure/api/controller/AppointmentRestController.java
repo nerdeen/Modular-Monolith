@@ -4,6 +4,7 @@ import com.appointment_booking.appointment_reservation.internal.application.usec
 import com.appointment_booking.appointment_reservation.internal.infrastructure.api.dto.AppointmentReqDTO;
 import com.appointment_booking.shared.dto.ResDTO;
 import com.appointment_booking.shared.dto.ResDTOMessage;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,11 @@ public class AppointmentRestController {
 
     AppointmentBookingUseCase appointmentBookingUseCase;
 
+    public AppointmentRestController(AppointmentBookingUseCase appointmentBookingUseCase) {
+        this.appointmentBookingUseCase = appointmentBookingUseCase;
+    }
+
+    @Operation(summary = "Book an Appointment", description = "Book a new appointment based on the provided appointment request details.")
     @PostMapping("/book")
     public ResponseEntity<ResDTO<Object>> bookAppointment(@RequestBody AppointmentReqDTO appointmentReqDTO) throws Exception {
         String appointmentId=appointmentBookingUseCase.bookAppointment(appointmentReqDTO);

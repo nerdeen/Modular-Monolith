@@ -1,7 +1,9 @@
 package com.appointment_booking.appointment_confirmation.internal;
 
 import com.appointment_booking.appointment_confirmation.shared.NotificationApi;
+import org.springframework.stereotype.Service;
 
+@Service
 public class NotificationApiImpl implements NotificationApi {
     @Override
     public void notifyDoctor(String doctorName,String patientName) {
